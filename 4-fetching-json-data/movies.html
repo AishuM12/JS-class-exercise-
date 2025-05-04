@@ -111,6 +111,38 @@
             var displayRating = document.getElementById("display-rating")
             var imageContainer = document.getElementById("image-container")
 
+            data.sort((a,b) => d3.ascending(a["Id"], b["Id"]))
+            data.forEach(movie => {
+                var option = document.createElement("option")
+                option.value = movie.Id
+                option.textContent = movie.Title
+
+                selectMovie.appendChild(option)
+                })
+
+                function updateMovieInfo() {
+                    var selectedId = selectMovie.value
+                    var selectedMovie = data.find(movie => movie.Id == selectedId)
+
+                   if (selectedMovie) {
+                        displayTitle.textContent = selectedMovie.Title
+                        displayYear.textContent = selectedMovie.Year
+                        displayRating.textContent = selectedMovie.Rating
+
+                        imageContainer.innerHTML = "" // Clear any previous image
+                        var img = document.createElement("img")
+                        img.src = selectedMovie["Thumbnail Image URL"]
+                        img.alt = `Thumbnail of ${selectedMovie.Title}`
+                        imageContainer.appendChild(img)
+                   } else {
+                        displayTitle.textContent = "TODO"
+                        displayYear.textContent = "TODO"
+                        displayRating.textContent = "TODO"
+                        imageContainer.innerHTML = ""
+                   }
+                }
+                selectMovie.addEventListener("change", updateMovieInfo, false)
+
                 
             })
     </script>
