@@ -122,14 +122,14 @@
         console.log("---------------------")
         console.log("PART 2...")
 
-        console.log("A)")
+        
         document.getElementById("display-driver").innerText = trip.driver.first_name
 
-        console.log("B)")
+        
         var vehicleInfo = `${trip.vehicle.make} ${trip.vehicle.model} (${trip.vehicle.licensePlate})`;
         document.getElementById("display-vehicle").innerText = vehicleInfo
 
-        console.log("C)")
+       
         var passengerList = document.getElementById("display-passengers")
         trip.stops.forEach(function(stop) {
         var li = document.createElement("li");
