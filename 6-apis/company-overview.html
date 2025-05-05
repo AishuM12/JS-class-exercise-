@@ -87,6 +87,7 @@
         }
 
 
+        // ELEMENT REFERENCES
         var inputSymbol = document.getElementById("input-symbol")
         var lookupButton = document.getElementById("lookup")
 
@@ -120,7 +121,6 @@
 
                 displayLink.innerText = data.OfficialSite
                 displayLink.href = data.OfficialSite
-
 
             }).catch(function(error) {
                 console.error("ERROR:", error)
